@@ -23,12 +23,18 @@ public class BaseClass extends App {
 		account.givePassword("Naruka@123");
 		account.reTypePassword("Naruka@123");
 		account.clickCheck();
+		account.selectdropdown("What is the name of your first school?");
+		account.fillEnterAnswer("Tejveer Singh Naruka");
+		account.fillMotherName("Amar Kanwar");
+		account.selectCity("Jaipur");
+		account.dateOfBirth("17", "AUG", "2001");
 		account.enterMobileNo("7412864208");
         account.choiceGender();
         account.choiceCountry("India");
         account.cityName("Jaipur");
         account.choiceGender();
         account.fillTextShow();
+        
 	}
 }
 

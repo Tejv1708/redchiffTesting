@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class createAccount extends PerformActions {
 
@@ -25,9 +26,9 @@ public class createAccount extends PerformActions {
 	@FindBy(xpath = "//input[@onclick='javascript:UncheckAllOptions();']")
 	private WebElement Id;
 
-	@FindBy(xpath ="//input[@value='Check availability']")
-	private WebElement availability ;
-	
+	@FindBy(xpath = "//input[@value='Check availability']")
+	private WebElement availability;
+
 	@FindBy(xpath = "//input[@value='Check availability']")
 	private WebElement Check;
 
@@ -61,6 +62,27 @@ public class createAccount extends PerformActions {
 	@FindBy(id = "Register")
 	private WebElement account;
 
+	@FindBy(xpath = "//select [@style='width:285px;']")
+	private WebElement dropDown;
+
+	@FindBy(xpath = "//input[contains (@name , 'hinta')]")
+	private WebElement enterAnswer;
+
+	@FindBy(xpath = "//input[contains(@name , 'mother' )]")
+	private WebElement mothername;
+
+	@FindBy(xpath = "//select[@style='width:183px;']")
+	private WebElement city;
+	
+	@FindBy(xpath ="//select [contains (@name , 'DOB_Day')]")
+    private WebElement date ;
+	
+	@FindBy(xpath ="//select [contains (@name , 'DOB_Month')]")
+	private WebElement month ;
+	
+	@FindBy(xpath ="//select [contains (@name , 'DOB_Year')]")
+	private WebElement year ;
+	
 	public void clickCreateAccount() {
 		doClick(createAccount);
 	}
@@ -68,15 +90,15 @@ public class createAccount extends PerformActions {
 	public void giveName(String name) {
 		Name.sendKeys(name);
 	}
-	
-	public void giveId(String id ) {
+
+	public void giveId(String id) {
 		Id.sendKeys(id);
 	}
 
 	public void checkAvailability() {
-		 availability.click();
+		availability.click();
 	}
-	
+
 	public void givePassword(String pass) {
 		password.sendKeys(pass);
 	}
@@ -111,6 +133,34 @@ public class createAccount extends PerformActions {
 
 	public void createAccount() {
 		account.click();
+	}
+
+	public void selectdropdown(String visibleText) {
+		Select dropdown = new Select(dropDown);
+		dropdown.selectByVisibleText(visibleText);
+	}
+
+	public void fillEnterAnswer(String Name) {
+		enterAnswer.sendKeys(Name);
+	}
+
+	public void fillMotherName(String Name) {
+		mothername.sendKeys(Name);
+	}
+
+	public void selectCity(String visibleText) {
+		Select dropdown = new Select(city);
+		dropdown.selectByVisibleText(visibleText);
+
+	}
+	public void dateOfBirth(String Date , String Month , String Year) {
+		Select dateDropDown = new Select(date) ;
+		Select monthDropDown = new Select(month) ;
+		Select yearDropDown = new Select(year) ;
+		
+		dateDropDown.selectByVisibleText(Date);
+		monthDropDown.selectByVisibleText(Month);
+		yearDropDown.selectByVisibleText(Year);
 	}
 
 }
